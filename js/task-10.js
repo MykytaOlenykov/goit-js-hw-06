@@ -23,23 +23,22 @@ createBoxBtnEl.addEventListener("click", () => {
     return;
   }
 
-  if (containerForBoxesRef.children.length !== 0) {
-    alert(
-      "В колекції вже є елементи! Для того, щоб створити нову колекцію, очистіть стару!"
-    );
-
-    return;
-  }
-
-  createBoxes(fieldEl.value);
+  createBoxes(Number(fieldEl.value));
 });
 
 destroyBoxBtnEl.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
   const markup = [];
+  let count = 0;
 
-  for (let i = 0; i < amount; i++) {
+  if (containerForBoxesRef.children.length > 0) {
+    count = containerForBoxesRef.children.length;
+    amount += count;
+    alert("Елементи додалися в кінець колекції");
+  }
+
+  for (let i = count; i < amount; i++) {
     const boxEl = document.createElement("div");
     const sideValueLength = 30 + i * 10 + "px";
 
@@ -61,4 +60,5 @@ function destroyBoxes() {
   }
 
   containerForBoxesRef.innerHTML = "";
+  fieldEl.value = "";
 }
