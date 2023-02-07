@@ -10,10 +10,10 @@ for (const categoryEl of itemsCategoriesEl) {
   const categoryTitleEl = categoryEl.querySelector("h2");
 
   console.log("");
-  console.log("Category: " + categoryTitleEl.textContent);
+  console.log(`Category: ${categoryTitleEl.textContent}`);
 
   // console.log(
   //   "Elements: " + categoryTitleEl.nextElementSibling.children.length
   // );
-  console.log("Elements: " + categoryEl.querySelector("ul").children.length);
+  console.log(`Elements: ${categoryEl.querySelector("ul").children.length}`);
 }

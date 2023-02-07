@@ -13,8 +13,7 @@ formRef.addEventListener("submit", (event) => {
     return;
   }
 
-  console.log(`${email.name}: ${email.value}`);
-  console.log(`${password.name}: ${password.value}`);
+  console.log({ email: email.value, password: password.value });
 
   event.currentTarget.reset();
 
